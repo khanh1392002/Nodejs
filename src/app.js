@@ -1,9 +1,18 @@
 console.log("123");
 
 const http = require('http');
-const express = require('express');
-
+// const express = require('express');
+import express from 'express';
+import cors from 'cors';
+import morgan from 'morgan';
+import productsRouter from '../rounter/product';
 const app = express();
+
+app.use(cors());
+app.use(morgan('tiny'));
+app.use(express.json());
+
+app.use(productsRouter);
 
 // const server = http.createServer((req, res) => {
 //     console.log("url", req.url);
@@ -24,22 +33,7 @@ const app = express();
 //     }
 // });
 //midlerware
-const check = (req, res, next) => {
-    const status = true;
-    if(status){
-        console.log("Hello");
-        next();
-    }else{
-        console.log("Bạn không có quyền truy cập");
-    }
-}
-app.get('/api/products', check, (req, res) => {
-    const products = [
-            {id: 1, name: "Products A"},
-            {id: 2, name: "Products B"}
-        ];
-        res.json(products);
-})
+
 
 // app.use(check);
 // app.use((req, res) => {
