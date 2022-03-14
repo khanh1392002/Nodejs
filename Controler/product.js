@@ -1,19 +1,38 @@
-const products = [
-    {id: 1, name: "Products A"},
-    {id: 2, name: "Products B"}
-];
+import mongoose from "mongoose";
 
-export const list = (req, res) => {
-    res.josn(products);
+// const products = [
+//     {id: 1, name: "Products A"},
+//     {id: 2, name: "Products B"}
+// ];
+const products = mongoose.model('products', {name: String});
+
+
+export const list = async (req, res) => {
+    try {
+        const product = await products.find();
+        res.json(product);
+    } catch (error) {
+        res.status(400).json({
+            message: "Không tìm được sản phẩm"
+        })
+    }
+    
 }
 
 export const read = (req, res) => {
-    res.josn(products.find(item => item.id === +req.params.id));
+    res.json(products.find(item => item.id === +req.params.id));
 }
 
-export const create = (req, res) => {
-    const product = req.body;
-    res.josn(product);
+export const create = async (req, res) => {
+    try {
+        const product = await new products(req.body).save();
+        res.json(product);
+    } catch (error) {
+        res.status(400).json({
+            message: "Thêm sản phẩm thất bại"
+        })
+    }
+    
 }
 
 export const remove = (req, res) => {
@@ -21,5 +40,5 @@ export const remove = (req, res) => {
 }
 
 export const update = (req, res) => {
-    res.josn(products.map(item => item.id == +req.params.id ? req.body : item));
+    res.json(products.map(item => item.id == +req.params.id ? req.body : item));
 }

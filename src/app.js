@@ -6,13 +6,17 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import productsRouter from '../rounter/product';
+import postRouter from '../rounter/post';
+import mongoose from 'mongoose';
+
 const app = express();
 
 app.use(cors());
 app.use(morgan('tiny'));
 app.use(express.json());
 
-app.use(productsRouter);
+app.use("/api", productsRouter);
+app.use("/api", postRouter);
 
 // const server = http.createServer((req, res) => {
 //     console.log("url", req.url);
@@ -39,7 +43,9 @@ app.use(productsRouter);
 // app.use((req, res) => {
 //     console.log("Open the door");
 // })
-
+mongoose.connect('mongodb://localhost:27017/web16309')
+    .then(() => console.log("Kết nối thành công"))
+    .catch((error) =>  console.log(error))
 
 
 
