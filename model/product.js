@@ -11,7 +11,7 @@ const productsSchema = new Schema({
         required: true
     },
     category: {
-        type: ObjectId,
+        type: Object,
         ref: "Category"
     }
 }, { timestamps: true }) ;

@@ -9,6 +9,7 @@ import productsRouter from '../rounter/product';
 import postRouter from '../rounter/post';
 import userRouter from '../rounter/user';
 import categoryRouter from '../rounter/category';
+import authRouter from '../rounter/auth';
 import mongoose from 'mongoose';
 
 const app = express();
@@ -19,9 +20,9 @@ app.use(express.json());
 
 app.use("/api", productsRouter);
 app.use("/api", postRouter);
-app.use("/api", userRouter);
+// app.use("/api", userRouter);
 app.use("/api", categoryRouter);
-
+app.use("/api", authRouter);
 // const server = http.createServer((req, res) => {
 //     console.log("url", req.url);
 //     if(req.url === "/"){
