@@ -1,4 +1,6 @@
-import User from "../model/user";
+import User from "../model/auth";
+import jwt from "jsonwebtoken";
+
 
 export const signup = async (req, res) => {
     const {email, name, password} = req.body;
@@ -36,7 +38,11 @@ export const signin = async (req, res) => {
                 message: "Sai mật khẩu"
             })
         };
+
+        const token = jwt.sign({_id: user._id}, "1234566", { expiresIn: 60 * 60});
+
         res.json({
+            token,
             user:{
                 _id: user._id,
                 email: user.email,

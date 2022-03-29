@@ -7,7 +7,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import productsRouter from '../rounter/product';
 import postRouter from '../rounter/post';
-import userRouter from '../rounter/user';
+// import userRouter from '../rounter/user';
 import categoryRouter from '../rounter/category';
 import authRouter from '../rounter/auth';
 import mongoose from 'mongoose';

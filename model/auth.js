@@ -11,16 +11,20 @@ const userSchema = new Schema({
         required: true
     },
     salt:{
-        type: string
+        type: String
     },
     password:{
         type: String,
         required: true
+    },
+    role: {
+        type: Number,
+        default: 0
     }
 }, {timestamps: true});
 
-userSchema.method = {
-    aauthenticate(password){
+userSchema.methods = {
+    authenticate(password){
         return this.password == this.encrytPassword(password);
     },
     encrytPassword(password){
