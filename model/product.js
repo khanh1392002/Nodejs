@@ -13,6 +13,7 @@ const productsSchema = new Schema({
     category: {
         type: Object,
         ref: "Category"
-    }
+    },
+   
 }, { timestamps: true }) ;
 export default mongoose.model('products', productsSchema);
