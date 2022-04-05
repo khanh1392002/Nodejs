@@ -14,6 +14,14 @@ const productsSchema = new Schema({
         type: Object,
         ref: "Category"
     },
+    desc: {
+        type: String,
+        required: true
+    },
+    img: {
+        type: String,
+        required: true
+    }
    
 }, { timestamps: true }) ;
 export default mongoose.model('products', productsSchema);

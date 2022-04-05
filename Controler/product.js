@@ -1,10 +1,4 @@
-// import mongoose from "mongoose";
 
-// // const products = [
-// //     {id: 1, name: "Products A"},
-// //     {id: 2, name: "Products B"}
-// // ];
-// const products = mongoose.model('products', {name: String});
 import products from '../model/product'
 
 
@@ -30,7 +24,7 @@ export const read = async (req, res) => {
             message: "Không tìm được sản phẩm"
         })
     }
-    // res.json(products.find(item => item.id === +req.params.id));
+  
 }
 
 export const create = async (req, res) => {
@@ -57,7 +51,7 @@ export const remove = async (req, res) => {
             message: "Không tìm thấy sản phẩm"
         })
     }
-    // res.json(products.filter(item => item.id !== +req.params.id));
+
 }
 
 export const update = async (req, res) => {
@@ -72,5 +66,5 @@ export const update = async (req, res) => {
             message: "Không tìm thấy sản phẩm"
         })
     }
-    // res.json(products.map(item => item.id == +req.params.id ? req.body : item));
+    
 }
