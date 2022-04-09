@@ -53,3 +53,14 @@ export const signin = async (req, res) => {
         console.log(error);
     }
 }
+
+export const list = async(req, res)=>{
+    try {
+        const listUser = await User.find();
+        res.json(listUser); 
+    } catch (error) {
+        res.status(400).json({
+            message: "Không tìm thấy user"
+        })
+    }
+}

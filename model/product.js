@@ -11,9 +11,17 @@ const productsSchema = new Schema({
         required: true
     },
     category: {
-        type: Object,
+        type: mongoose.Types.ObjectId,
         ref: "Category"
     },
+    desc: {
+        type: String,
+        // required: true
+    },
+    img: {
+        type: String,
+        // required: true
+    }
    
 }, { timestamps: true }) ;
 export default mongoose.model('products', productsSchema);
