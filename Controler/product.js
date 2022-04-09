@@ -68,3 +68,13 @@ export const update = async (req, res) => {
     }
     
 }
+
+export const search = async (req, res) => {
+    const kyeword = req.query.q
+    try {
+        const product = await  products.find({$text: {$search: kyeword}});
+        res.json(product);
+    } catch (error) {
+        
+    }
+}
