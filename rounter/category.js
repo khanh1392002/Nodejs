@@ -6,8 +6,8 @@ const router = Router();
 
 
 router.post("/category", checkAuth, create);
-router.get("/category", checkAuth, read);
-router.get("/categoryy", checkAuth, list);
+router.get("/category:id", checkAuth, read);
+router.get("/category", checkAuth, list);
 router.delete("/category", checkAuth, remove);
 router.put("/category", checkAuth, update);
 

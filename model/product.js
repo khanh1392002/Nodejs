@@ -11,16 +11,16 @@ const productsSchema = new Schema({
         required: true
     },
     category: {
-        type: Object,
+        type: mongoose.Types.ObjectId,
         ref: "Category"
     },
     desc: {
         type: String,
-        required: true
+        // required: true
     },
     img: {
         type: String,
-        required: true
+        // required: true
     }
    
 }, { timestamps: true }) ;

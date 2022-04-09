@@ -8,11 +8,16 @@ import categoryRouter from '../rounter/category';
 import authRouter from '../rounter/auth';
 import mongoose from 'mongoose';
 
+
 const app = express();
+
+
 
 app.use(cors());
 app.use(morgan('tiny'));
 app.use(express.json());
+
+
 
 app.use("/api", productsRouter);
 app.use("/api", postRouter);
