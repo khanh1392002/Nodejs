@@ -32,6 +32,7 @@ export const create = async (req, res) => {
         const product = await new products(req.body).save();
         res.json(product);
     } catch (error) {
+        console.log(error);
         res.status(400).json({
             message: "Thêm sản phẩm thất bại"
         })

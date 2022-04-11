@@ -3,7 +3,6 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import productsRouter from '../rounter/product';
-import postRouter from '../rounter/post';
 import categoryRouter from '../rounter/category';
 import authRouter from '../rounter/auth';
 import mongoose from 'mongoose';
@@ -20,7 +19,6 @@ app.use(express.json());
 
 
 app.use("/api", productsRouter);
-app.use("/api", postRouter);
 app.use("/api", categoryRouter);
 app.use("/api", authRouter);
 mongoose.connect('mongodb://localhost:27017/web16309')
